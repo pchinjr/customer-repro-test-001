@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import { signupEmailPassword } from '@architect/shared/auth/auth';
+//import { signupEmailPassword } from '@architect/shared/auth/auth';
 import '@architect/shared/DB/dbConnection';
 import arc from '@architect/functions';
 import validatePayload from './validator';
@@ -15,17 +15,17 @@ export const handler = async function http(req) {
     const body = JSON.parse(req.body);
     validatePayload(body);
 
-    const results = await signupEmailPassword(body);
+    //const results = await signupEmailPassword(body);
 
-    await arc.events.publish({
-      name: 'account-new-signup',
-      payload: results.user,
-    });
+    // await arc.events.publish({
+    //   name: 'account-new-signup',
+    //   payload: results.user,
+    // });
 
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify(results),
+      body: JSON.stringify({ok: true}),
     };
   } catch (error) {
     return {
