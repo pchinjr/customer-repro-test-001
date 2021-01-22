@@ -1,0 +1,6 @@
+.arc-env
+.DS_Store
+node_modules
+.env
+src/**/*/*.js
+.vscode
